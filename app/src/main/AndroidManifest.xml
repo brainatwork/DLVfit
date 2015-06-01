@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="it.unical.mat.dlvfit" >
+
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyMaterialTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".contentprovider.DLVfitProvider"
+            android:authorities="it.unical.mat.dlvfit.contentprovider.DLVfit" >
+        </provider>
+
+        <service
+            android:name=".service.DetectedActivitiesIntentService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".ElaborationResult"
+            android:label="@string/title_activity_elaboration_result" >
+        </activity>
+        <activity
+            android:name=".CaloriesReport"
+            android:label="@string/title_activity_calories_report" >
+        </activity>
+        <activity
+            android:name=".TimeReport"
+            android:label="@string/title_activity_time_report" >
+        </activity>
+    </application>
+
+</manifest>

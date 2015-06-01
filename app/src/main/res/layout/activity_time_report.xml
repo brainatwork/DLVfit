@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    tools:context="it.unical.mat.dlvfit.reports.TimeReport">
+    <LinearLayout
+        android:id="@+id/time_report_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/container_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="348dp"
+                android:layout_height="71dp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:layout_width="87dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/bicycle"/>
+                    <TextView
+                        android:id="@+id/report_txt1"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="14dp"
+                        android:text="0 min" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:layout_width="87dp"
+                    android:layout_height="75dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/walking"/>
+                    <TextView
+                        android:id="@+id/report_txt2"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="14dp"
+                        android:text="0 min" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:layout_width="87dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/running"/>
+                    <TextView
+                        android:id="@+id/report_txt3"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="14dp"
+                        android:text="0 min" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:layout_width="87dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/still"/>
+                    <TextView
+                        android:id="@+id/report_txt4"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="14dp"
+                        android:text="0 min" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

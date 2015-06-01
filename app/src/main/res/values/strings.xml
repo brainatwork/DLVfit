@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">DLVfit</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_user_data">User data</string>
+    <string name="nav_item_start_workout">Start workout</string>
+    <string name="nav_item_elaborate_workout">Elaborate workout</string>
+    <string name="nav_item_add_activity">Add activity</string>
+
+    <!-- MainActivity strings -->
+    <string name="input_data_alert">Many of DLVfit features depends on data input inserted. \nPlease fill out the form carefully.</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_user_data</item>
+        <item>@string/nav_item_start_workout</item>
+        <item>@string/nav_item_elaborate_workout</item>
+        <item>@string/nav_item_add_activity</item>
+    </string-array>
+
+    <!-- fragment titles -->
+    <string name="title_elaborate_workout">Elaborate Workout</string>
+    <string name="title_start_workout">Start Workout</string>
+    <string name="title_user_data">Your data</string>
+    <string name="title_add_activity">Add Activity</string>
+    <string name="title_time_report">Time Report</string>
+    <string name="title_calories_report">Burned Calories Report</string>
+
+    <!-- user data fragment strings-->
+    <string name="form_title">Fill out the form</string>
+    <string name="form_age">Age</string>
+    <string name="form_weight">Weight (kg)</string>
+    <string name="form_workout">Workout time (min)</string>
+    <string name="form_calories">Calories to burn (cal)</string>
+    <string name="form_male">Male</string>
+    <string name="form_female">Female</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_clear">Clear All</string>
+    <string name="alert_remove_data_txt">All data will be removed.</string>
+    <string name="toast_confirmed_txt">Input data confirmed.</string>
+    <string name="toast_zero_values_txt">Zero values!</string>
+    <string name="toast_blank_values_txt">Blank values!</string>
+    <string name="age_txt">Age</string>
+    <string name="weight_txt">Weight (kg)</string>
+    <string name="calories_txt">Calories to burn (cal)</string>
+    <string name="workout_time">Workout time (min)</string>
+
+    <!-- start workout fragment strings-->
+    <string name="btn_start">Start</string>
+    <string name="btn_stop">Stop</string>
+    <string name="stat_icon2_txt">Burned calories</string>
+    <string name="stat_icon1_txt">Time per activity</string>
+
+    <!-- elaborate workout fragment strings-->
+    <string name="btn_elaborate">Elaborate</string>
+    <string name="preferences_icon2_txt">Preferences</string>
+    <string name="options_icon1_txt">Optimizations</string>
+    <string name="elaborate_activity_text">Press the button to show proposed workouts for calories you need to burn.</string>
+    <string name="optimizations">Optimization values:</string>
+    <string name="optimization_1">Time per workout</string>
+    <string name="optimization_2">Activities per workout</string>
+    <string name="optimization_3">Activity type</string>
+    <string name="optimization_1_db">time</string>
+    <string name="optimization_2_db">activities</string>
+
+    <!-- add activity fragment strings-->
+    <string name="add_activity_title">Add new activities</string>
+    <string name="add_activity_txt">This is an advanced feature that gives a more personal experience with DLVfit. Recommended for expert users. </string>
+    <string name="form_activity_name">Activity name (Ex. Running)</string>
+    <string name="form_burned_calories_per_min">Calories Burned in a minute (Ex. 4.0)</string>
+    <string name="btn_add">Add Activity</string>
+    <string name="add_activity_toast">Activity added.</string>
+    <string name="add_activity_error_toast">Activity already added or invalid value.</string>
+
+    <!-- start workout fragment strings -->
+    <string name="in_vehicle">IN_VEHICLE</string>
+    <string name="on_bicycle">ON_BICYCLE</string>
+    <string name="on_foot">ON_FOOT</string>
+    <string name="running">RUNNING</string>
+    <string name="still">STILL</string>
+    <string name="tilting">TILTING</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="walking">WALKING</string>
+    <string name="unidentifiable_activity">Unidentifiable</string>
+    <string name="not_connected">GoogleApiClient not yet connected. Try again.</string>
+    <string name="activity_updates_added">Activity updates started</string>
+    <string name="activity_updates_removed">Activity updates stopped</string>
+    <string name="notification_txt">Remember to stop if your workout is completed.</string>
+    <string name="notification_message">DLVfit is running in background!</string>
+    <string name="start_workout_txt">Start button allows DLVfit to take track of activities recognized by the phone that corresponds to your workout. Data corresponding to a previous workout will be removed. Remember to press stop
+    after workout end.</string>
+
+    <!--elaborate workout fragment strings-->
+
+    <!-- Elaboration Activity-->
+    <string name="title_activity_elaboration_result">Elaboration Result</string>
+
+    <!-- OptimizationFragment -->
+    <string name="options_title">Choose optimization and place theme in your order of preference.</string>
+    <string name="option_1">Time per workout</string>
+    <string name="option_2">Activity type</string>
+    <string name="option_3">Activities per workout</string>
+    <string name="choice_1">First choice</string>
+    <string name="choice_2">Second choice</string>
+    <string name="choice_3">Third choise</string>
+    <string name="to_drag_title">Choose optimization you prefer and drag it.</string>
+    <string name="to_drop_title">Drop optimization on your preference level.</string>
+    <string name="optimizations_alert">No optimizations selected. Are you sure to elaborate workouts without optimizations? That will remove all optimizations stored in DLVfit.</string>
+
+    <!--PreferencesFragment-->
+    <string name="preferences_title">Choose your activity preference level.</string>
+
+    <!--Report strings-->
+    <string name="title_activity_calories_report">Calories Report</string>
+    <string name="title_activity_time_report">Time Report</string>
+
+
+</resources>
