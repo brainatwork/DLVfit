@@ -7,6 +7,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import it.unical.mat.dlvfit.R;
+
 /**
  * Created by Dario Campisano on 14/04/2015.
  */
@@ -42,7 +44,7 @@ public class SQLiteDBManager {
         ContentValues values = new ContentValues();
         values.put(DLVfitProvider.GENDER, _inputData.getGender());
         values.put(DLVfitProvider.AGE, _inputData.getAge());
-        values.put(DLVfitProvider.WEIGHT, _inputData.getAge());
+        values.put(DLVfitProvider.WEIGHT, _inputData.getWeight());
         values.put(DLVfitProvider.WORKOUT_TIME, _inputData.getWorkoutTime());
         values.put(DLVfitProvider.CALORIES, _inputData.getCalories());
 
@@ -53,6 +55,106 @@ public class SQLiteDBManager {
                 _inputData.getWeight() + " " + _inputData.getWorkoutTime() + " " + _inputData.getCalories());
 
         return uri;
+    }
+
+    /**
+     * Update gender in inputdata table.
+     * @param value
+     * @return rows
+     */
+    public int updateGender(String value){
+
+        ContentValues values = new ContentValues();
+
+        values.put(DLVfitProvider.GENDER, value);
+
+        String URL = DLVfitProvider.INPUT_DATA_URL;
+        Uri _uri = Uri.parse(URL);
+
+        int rows = context.getContentResolver().update(_uri, values, null, null);
+        Log.d(TAG, "Gender update: " + rows);
+
+        return rows;
+    }
+
+    /**
+     * Update workout time in inputdata table.
+     * @param value
+     * @return rows
+     */
+    public int updateWorkoutTime(int value){
+
+        ContentValues values = new ContentValues();
+
+        values.put(DLVfitProvider.WORKOUT_TIME, value);
+
+        String URL = DLVfitProvider.INPUT_DATA_URL;
+        Uri _uri = Uri.parse(URL);
+
+        int rows = context.getContentResolver().update(_uri, values, null, null);
+        Log.d(TAG, "Workout time update: " + rows);
+
+        return rows;
+    }
+
+    /**
+     * Update calories in inputdata table.
+     * @param value
+     * @return rows
+     */
+    public int updateCalories(Double value){
+
+        ContentValues values = new ContentValues();
+
+        values.put(DLVfitProvider.CALORIES, value);
+
+        String URL = DLVfitProvider.INPUT_DATA_URL;
+        Uri _uri = Uri.parse(URL);
+
+        int rows = context.getContentResolver().update(_uri, values, null, null);
+        Log.d(TAG, "Calories update: " + rows);
+
+        return rows;
+    }
+
+    /**
+     * Update age in inputdata table.
+     * @param value
+     * @return rows
+     */
+    public int updateAge(int value){
+
+        ContentValues values = new ContentValues();
+
+        values.put(DLVfitProvider.AGE, value);
+
+        String URL = DLVfitProvider.INPUT_DATA_URL;
+        Uri _uri = Uri.parse(URL);
+
+        int rows = context.getContentResolver().update(_uri, values, null, null);
+        Log.d(TAG, "Age update: " + rows);
+
+        return rows;
+    }
+
+    /**
+     * Update weight in inputdata table.
+     * @param value
+     * @return rows
+     */
+    public int updateWeight(Double value){
+
+        ContentValues values = new ContentValues();
+
+        values.put(DLVfitProvider.WEIGHT, value);
+
+        String URL = DLVfitProvider.INPUT_DATA_URL;
+        Uri _uri = Uri.parse(URL);
+
+        int rows = context.getContentResolver().update(_uri, values, null, null);
+        Log.d(TAG, "Weight update: " + rows);
+
+        return rows;
     }
 
     /**
@@ -404,7 +506,7 @@ public class SQLiteDBManager {
         String URL = DLVfitProvider.OPTIMIZATIONS_DATA_URL;
         Uri _uri = Uri.parse(URL);
 
-        int rows = context.getContentResolver().update(_uri, values, DLVfitProvider.OPTIMIZATION + " != \"time\" AND " + DLVfitProvider.OPTIMIZATION + " != \"activities\"", null);
+        int rows = context.getContentResolver().update(_uri, values, DLVfitProvider.OPTIMIZATION + " <> \""+ R.string.optimization_1_db+"\" AND " + DLVfitProvider.OPTIMIZATION + " <> \""+R.string.optimization_2_db+"\"", null);
         Log.d(TAG, "Rows updated in optimization table: " + rows);
 
         return rows;

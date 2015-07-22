@@ -10,4 +10,5 @@
 
     <color name="female">#ff007f</color>
     <color name="male">#2196F3</color>
+    <color name="colorSecondary">#d81b60</color>
 </resources>

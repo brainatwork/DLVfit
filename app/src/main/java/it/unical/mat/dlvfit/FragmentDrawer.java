@@ -1,6 +1,5 @@
 package it.unical.mat.dlvfit;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -13,13 +12,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unical.mat.dlvfit.model.NavDrawerItem;
+import it.unical.mat.dlvfit.menumodel.NavDrawerItem;
+import it.unical.mat.dlvfit.menumodel.NavigationDrawerAdapter;
 
 /**
  * Created by Brain At Work on 13/05/2015.

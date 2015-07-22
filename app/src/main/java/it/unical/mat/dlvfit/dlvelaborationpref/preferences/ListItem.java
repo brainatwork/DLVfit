@@ -3,6 +3,10 @@ package it.unical.mat.dlvfit.dlvelaborationpref.preferences;
 /**
  * Created by Brain At Work on 23/05/2015.
  */
+
+/**
+ * Represents a preference list item
+ */
 public class ListItem {
 
     private String activityName;

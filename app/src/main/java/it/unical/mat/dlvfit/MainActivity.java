@@ -14,16 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-import it.unical.mat.dlvfit.contentprovider.InputDataUtil;
-import it.unical.mat.dlvfit.contentprovider.OptimizeUtil;
 import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
-import it.unical.mat.dlvfit.menu_fragments.AddActivity;
-import it.unical.mat.dlvfit.menu_fragments.ElaborateWorkout;
-import it.unical.mat.dlvfit.menu_fragments.StartWorkout;
-import it.unical.mat.dlvfit.menu_fragments.UserDataFragment;
+import it.unical.mat.dlvfit.menufragments.AddActivity;
+import it.unical.mat.dlvfit.menufragments.ElaborateWorkout;
+import it.unical.mat.dlvfit.menufragments.StartWorkout;
+import it.unical.mat.dlvfit.menufragments.UserDataFragment;
 
 /**
  * Created by Brain At Work on 13/05/2015.
@@ -36,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
     private SQLiteDBManager dbManager;
-    private AlertDialog alertDialog;
+    //private AlertDialog alertDialog;
     private boolean showAlert = true;
 
     @Override
@@ -50,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             showAlert = false;
         }
 
-        if(dbManager.retrieveInputData().size() == 0 && showAlert && extras == null){
+        /*if(dbManager.retrieveInputData().size() == 0 && showAlert && extras == null){
             alertDialog = new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.app_name)
                     .setMessage(R.string.input_data_alert)
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                     })
                     .setIcon(R.mipmap.ic_launcher)
                     .show();
-        }
+        }*/
 
         setContentView(R.layout.activity_main);
 

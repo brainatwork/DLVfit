@@ -42,6 +42,7 @@ public class ActivityUtil {
         this._confidence_level = _confidence_level;
     }
 
+    //getters and setters
     public int getTimestamp() {
         return _timestamp;
     }
@@ -74,7 +75,7 @@ public class ActivityUtil {
         this._id = _id;
     }
 
-    //create a String corresponding to a detected_activity Fact
+    //create a String corresponding to a detected_activity dlv fact for embasp framework
     public String toFact(){
         return "detected_activity("+_timestamp+", \""+_activity_name+"\", "+_confidence_level+").";
     }

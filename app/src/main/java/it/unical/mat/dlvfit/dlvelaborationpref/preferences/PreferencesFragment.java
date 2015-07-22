@@ -1,5 +1,6 @@
 package it.unical.mat.dlvfit.dlvelaborationpref.preferences;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import it.unical.mat.dlvfit.MainActivity;
 import it.unical.mat.dlvfit.R;
 import it.unical.mat.dlvfit.contentprovider.OptimizeUtil;
 import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
+import it.unical.mat.dlvfit.utils.Utils;
 
 /**
  * Created by Brain At Work on 22/05/2015.
@@ -29,13 +31,13 @@ public class PreferencesFragment extends DialogFragment {
 
     private ImageView mReset, mConfirm;
     private ListView listView;
-
+    private AlertDialog alertDialog;
     private ArrayList<OptimizeUtil> optimizations;
     int firstLevel;
     List list;
     private SQLiteDBManager dbManager;
 
-    public PreferencesFragment(){
+    public PreferencesFragment() {
 
     }
 
@@ -48,7 +50,7 @@ public class PreferencesFragment extends DialogFragment {
         //UI
         mReset = (ImageView) rootView.findViewById(R.id.reset_preferences);
         mConfirm = (ImageView) rootView.findViewById(R.id.confirm_preferences);
-        listView = (ListView)rootView.findViewById(R.id.listViewDemo);
+        listView = (ListView) rootView.findViewById(R.id.listViewDemo);
 
         dbManager = new SQLiteDBManager(getActivity());
         optimizations = dbManager.retrieveOptimizations();
@@ -56,27 +58,40 @@ public class PreferencesFragment extends DialogFragment {
         list = new LinkedList();
 
         firstLevel = 0;
-        for(int i = 0; i < optimizations.size(); i++ ){
-            if(!optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_1_db)) &&
-                    !optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_2_db))){
+        final ArrayList<String> optimizationsStoredNames = new ArrayList<String>();
+
+        //{@ListItem} initialization from SQLite db entries
+        for (int i = 0; i < optimizations.size(); i++) {
+            if (!optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_1_db)) &&
+                    !optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_2_db))) {
+
                 firstLevel = optimizations.get(i).getFirstLevel();
-                list.add(new ListItem(optimizations.get(i).getOptimizationName(), 3 - firstLevel));
+
+                String notFormattedName = optimizations.get(i).getOptimizationName();
+                optimizationsStoredNames.add(notFormattedName);
+                String activityName = "";
+
+                if (!notFormattedName.contains("ON_")) {
+                    activityName = notFormattedName.substring(0, 1).toUpperCase() + notFormattedName.substring(1).toLowerCase();
+                } else {
+                    notFormattedName = notFormattedName.replace("ON_", "");
+                    activityName = notFormattedName.substring(0, 1).toUpperCase() + notFormattedName.substring(1).toLowerCase();
+                }
+                if (optimizations.get(i).getFirstLevel() == -1) {
+                    list.add(new ListItem(activityName, Utils.NULL_VALUE));
+                } else {
+                    list.add(new ListItem(activityName, Utils.HIGH_VALUE - firstLevel));
+                }
             }
 
         }
 
-        /*list.add(new ListItem("activity1",2));
-        list.add(new ListItem("activity2"));
-        list.add(new ListItem("activity3"));
-        list.add(new ListItem("activity4"));
-        list.add(new ListItem("activity5"));
-        list.add(new ListItem("activity6"));*/
-
-        final CustomAdapter adapter = new CustomAdapter(getActivity(),list);
+        final CustomAdapter adapter = new CustomAdapter(getActivity(), list);
         listView.setAdapter(adapter);
 
         Log.i(TAG, "List View Elements " + adapter.getCount());
 
+        //reset all preferences setted
         mReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,23 +99,39 @@ public class PreferencesFragment extends DialogFragment {
                 for (int i = 0; i < optimizations.size(); i++) {
                     if (!optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_1_db)) &&
                             !optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_2_db))) {
-                        firstLevel = optimizations.get(i).getFirstLevel();
-                        list.add(new ListItem(optimizations.get(i).getOptimizationName(), 3 - firstLevel));
+
+                        String notFormattedName = optimizations.get(i).getOptimizationName();
+                        optimizationsStoredNames.add(notFormattedName);
+                        String activityName = "";
+
+                        if (!notFormattedName.contains("ON_")) {
+                            activityName = notFormattedName.substring(0, 1).toUpperCase() + notFormattedName.substring(1).toLowerCase();
+                        } else {
+                            notFormattedName = notFormattedName.replace("ON_", "");
+                            activityName = notFormattedName.substring(0, 1).toUpperCase() + notFormattedName.substring(1).toLowerCase();
+                        }
+                        if (optimizations.get(i).getFirstLevel() == -1) {
+                            list.add(new ListItem(activityName, Utils.NULL_VALUE));
+                        } else {
+                            list.add(new ListItem(activityName, Utils.HIGH_VALUE - firstLevel));
+                        }
+
+                        //list.add(new ListItem(optimizations.get(i).getOptimizationName(), Utils.NULL_VALUE));
                     }
                     listView.setAdapter(adapter);
                 }
             }
         });
 
+        //save the current preferences setted by user
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < adapter.getCount(); i++) {
-                    ListItem item = (ListItem)listView.getAdapter().getItem(i);
-                    Log.i(TAG,"Preference value of "+item.getActivityName()+ " " + item.getRate());
-
-                    dbManager.updateOptimizationsFirstLevel(item.getActivityName(), 3 - item.getRate());
-                }
+                                for (int i = 0; i < adapter.getCount(); i++) {
+                                    ListItem item = (ListItem) listView.getAdapter().getItem(i);
+                                    Log.i(TAG, "Preference value of " + item.getActivityName() + " = " + " " + optimizationsStoredNames.get(i) + " " + item.getRate());
+                                    dbManager.updateOptimizationsFirstLevel(optimizationsStoredNames.get(i), (Utils.HIGH_VALUE - item.getRate()));
+                                }
                 getDialog().dismiss();
             }
         });

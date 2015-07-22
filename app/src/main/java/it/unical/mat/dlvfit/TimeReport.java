@@ -29,6 +29,8 @@ public class TimeReport extends AppCompatActivity {
 
     private Toolbar mToolbar;
 
+    private SQLiteDBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,7 @@ public class TimeReport extends AppCompatActivity {
 
         TextView[] reportTxts = {reportTxt1, reportTxt2, reportTxt3, reportTxt4};
 
-        SQLiteDBManager dbManager = new SQLiteDBManager(getApplicationContext());
+        dbManager = new SQLiteDBManager(getApplicationContext());
 
         Utils utils = new Utils();
 

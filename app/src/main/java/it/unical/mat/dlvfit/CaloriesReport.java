@@ -27,6 +27,7 @@ public class CaloriesReport extends AppCompatActivity {
     protected static final String TAG = "CaloriesReport";
     private TextView reportTxt1, reportTxt2, reportTxt3;
     private Toolbar mToolbar;
+    private SQLiteDBManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class CaloriesReport extends AppCompatActivity {
         ArrayList<String> activities = utils.getMonitoredActivity();
         activities.remove("STILL");
 
-        SQLiteDBManager dbManager = new SQLiteDBManager(getApplicationContext());
+        dbManager = new SQLiteDBManager(getApplicationContext());
         InputDataUtil user = dbManager.retrieveInputData().get(0);
         caloriesToBurn = (int) user.getCalories();
 

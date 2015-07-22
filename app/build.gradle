@@ -1,4 +1,3 @@
-
 apply plugin: 'com.android.application'
 
 android {
@@ -18,6 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
 }
 
 repositories {
@@ -30,4 +30,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.google.android.gms:play-services:7.3.0'
     compile files('libs/mpandroidchartlibrary-2-0-9.jar')
+    compile project(':embasp')
 }

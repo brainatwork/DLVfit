@@ -3,6 +3,10 @@ package it.unical.mat.dlvfit.contentprovider;
 /**
  * Created by Brain At Work on 27/04/2015.
  */
+
+/**
+ * Utility class representing an object that contains user input data
+ */
 public class InputDataUtil {
     private double _weight;
     private int _age;
@@ -14,6 +18,14 @@ public class InputDataUtil {
 
     }
 
+    /**
+     * Constructor for input to insert in SQLite DB
+     * @param _gender
+     * @param _age
+     * @param _weight
+     * @param _workoutTime
+     * @param _calories
+     */
     public InputDataUtil(String _gender, int _age, double _weight, int _workoutTime, double _calories){
         this._gender = _gender;
         this._age = _age;
@@ -22,6 +34,7 @@ public class InputDataUtil {
         this._calories = _calories;
     }
 
+    //getters and setters
     public double getWeight() {
         return _weight;
     }
