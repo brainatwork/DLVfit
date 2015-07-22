@@ -69,7 +69,7 @@ public class DetectedActivitiesIntentService extends IntentService {
         Date now = new Date();
         SimpleDateFormat dateformat = new SimpleDateFormat ("dd MMMM yyyy - HH:mm.ss");
         Log.i(TAG,"RECOGNITION TIME: "+ dateformat.format(now));
-
+        //all activity recognized will be added into SQLite DB
         // Log each activity.
         Log.i(TAG, "activities detected");
         for (DetectedActivity da: detectedActivities) {

@@ -5,7 +5,7 @@ package it.unical.mat.dlvfit.contentprovider;
  */
 
 /**
- * ActivityUtil is an utility class that creates objects representing a Detected Activity {@link com.google.android.gms.location.DetectedActivity}
+ * ActivityUtil is a utility class to represent the activities detected by GoogleRecognitionApi {@link com.google.android.gms.location.DetectedActivity}
  * @see com.google.android.gms.location.DetectedActivity
  * @see com.google.android.gms.location.ActivityRecognitionApi
  */
@@ -16,7 +16,7 @@ public class ActivityUtil {
     private int _confidence_level;
 
     /**
-     * Constructor for Activity detected to retrieve from SQLite DB
+     * Constructor
      * @param _id
      * @param _timestamp
      * @param _activity_name
@@ -30,8 +30,8 @@ public class ActivityUtil {
     }
 
     /**
-     * Constructor for detected Activity to insert in SQLite DB.
-     * In this case _timestamp is created in the DB because _timestamp is an auto incremented id!
+     * Constructor
+     * In this case _timestamp is created in the SQLite DB because _timestamp is an auto incremented id!
      * @param _timestamp
      * @param _activity_name
      * @param _confidence_level

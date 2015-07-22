@@ -26,12 +26,16 @@ import it.unical.mat.dlvfit.utils.Utils;
 /**
  * Created by Brain At Work on 22/05/2015.
  */
+
+/**
+ * PreferencesFragment contains a graphical interface that allows the user to choose a preference on a single activity
+ */
 public class PreferencesFragment extends DialogFragment {
     protected static final String TAG = "PreferencesFragment";
 
     private ImageView mReset, mConfirm;
     private ListView listView;
-    private AlertDialog alertDialog;
+    //private AlertDialog alertDialog;
     private ArrayList<OptimizeUtil> optimizations;
     int firstLevel;
     List list;
@@ -58,9 +62,10 @@ public class PreferencesFragment extends DialogFragment {
         list = new LinkedList();
 
         firstLevel = 0;
+        //the name of all activities in the SQLite DB
         final ArrayList<String> optimizationsStoredNames = new ArrayList<String>();
 
-        //{@ListItem} initialization from SQLite db entries
+        //nitializes the listview with proper formatting and with the correct level of preference
         for (int i = 0; i < optimizations.size(); i++) {
             if (!optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_1_db)) &&
                     !optimizations.get(i).getOptimizationName().equals(getString(R.string.optimization_2_db))) {
@@ -91,7 +96,7 @@ public class PreferencesFragment extends DialogFragment {
 
         Log.i(TAG, "List View Elements " + adapter.getCount());
 
-        //reset all preferences setted
+        //reset all preferences setted in ListView
         mReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

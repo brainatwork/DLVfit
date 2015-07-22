@@ -77,7 +77,8 @@ public class ElaborateWorkout extends Fragment {
             Log.i(TAG, optimizations.get(i).getOptimizationName() + "" + optimizations.get(i).getSecondLevel());
         }
         */
-
+        //shows current optimization
+        //initialization is based on the initial position in which they are added into the database in the initialization phase
         mOpt1.setText(R.string.optimization_1);
         setLevelIcon(mImageOpt1, optimizations.get(0).getSecondLevel());//first entry in db on initialization: "time"
         mOpt2.setText(R.string.optimization_2);
@@ -104,6 +105,7 @@ public class ElaborateWorkout extends Fragment {
             }
         });
 
+        //starts a new activity to show answer sets that embasp framework will generate
         mElaborate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +130,7 @@ public class ElaborateWorkout extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-
+    //the function associates with the correct image to the optimization level setted
     private void setLevelIcon(ImageView iv, int secondLevel){
         if(secondLevel == 0){
             iv.setImageResource(R.drawable.cross);

@@ -20,6 +20,9 @@ import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
 import it.unical.mat.dlvfit.utils.RecognitionApiConstants;
 import it.unical.mat.dlvfit.utils.Utils;
 
+/**
+ * Shows a graphic report for burned calories in time
+ */
 
 public class TimeReport extends AppCompatActivity {
 

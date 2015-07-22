@@ -5,7 +5,7 @@ package it.unical.mat.dlvfit.contentprovider;
  */
 
 /**
- * Utility class representing an object that contains optimizations for the logic program handled by embasp data
+ * OptimizeUtil is a utility class to represent an object that contains optimizations for the logic program handled by embasp framework
  */
 public class OptimizeUtil {
     private String _optimizationName;

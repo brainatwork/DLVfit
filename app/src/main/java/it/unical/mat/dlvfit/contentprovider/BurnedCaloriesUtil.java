@@ -4,7 +4,7 @@ package it.unical.mat.dlvfit.contentprovider;
  * Created by Dario Campisano on 16/04/2015.
  */
 /**
- * BurnedCaloriesUtil is an utility class that creates objects representing burned calories for one minute group
+ * BurnedCaloriesUtil is a utility class to represent the calories burned in a minute from a group of activities
  */
 public class BurnedCaloriesUtil {
     private String _activity_group;
@@ -18,7 +18,7 @@ public class BurnedCaloriesUtil {
     }
 
     /**
-     * Constructor for burned calories for one minute to insert in SQLite DB
+     * Constructor
      * @param _activity_group
      * @param _burnedcalories_min
      */
@@ -27,6 +27,7 @@ public class BurnedCaloriesUtil {
         this._burnedcalories_min = _burnedcalories_min;
     }
 
+    //getters and setters
     public String getActivityGroup() {
         return _activity_group;
     }
@@ -44,7 +45,7 @@ public class BurnedCaloriesUtil {
         this._burnedcalories_min = _burnedcalories_min;
     }
 
-    //create a String corresponding to a calories_burnt_per_activity Fact
+    //create a String corresponding to a calories_burnt_per_activity dlv fact for embasp framework
     public String toFact(){
         return "calories_burnt_per_activity(\""+_activity_group+"\", "+_burnedcalories_min+").";
     }

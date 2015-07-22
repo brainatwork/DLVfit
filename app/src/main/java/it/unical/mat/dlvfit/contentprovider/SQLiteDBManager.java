@@ -14,8 +14,7 @@ import it.unical.mat.dlvfit.R;
  */
 
 /**
- * ActivitiesSQLiteManager provides method for adding and retrieving {@code ActivityUtil} objects on SQLite Database in {@code RecognitionActivityProvider},
- * a method for SQLite Database resetting.
+ * ActivitiesSQLiteManager provides method for adding and retrieving {@code ActivityUtil} objects from SQLite Database
  * @see Context
  * @see Cursor
  * @see Uri
@@ -305,7 +304,7 @@ public class SQLiteDBManager {
     }
 
     /**
-     * Retrieve burned calories in a minute for a particoular activity and insert it into a {@code BurnedCaloriesUtil} object
+     * Retrieve burned calories in a minute for a particoular activity and inserts it into a {@code BurnedCaloriesUtil} object
      * @return BurnedCaloriesUtil
      */
 

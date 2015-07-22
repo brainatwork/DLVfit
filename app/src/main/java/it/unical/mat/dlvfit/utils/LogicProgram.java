@@ -5,7 +5,7 @@ package it.unical.mat.dlvfit.utils;
  */
 
 /**
- * Contains the logic program for workout calculation and utilities to init it
+ * Contains the logic program for workouts calculation.
  */
 public class LogicProgram {
     private static String program = "activity_to_do(A, HL) | not_activity_to_do(A, HL) :- how_long(A, HL).\n" +
@@ -22,7 +22,7 @@ public class LogicProgram {
     public static String getProgram(){
         return program;
     }
-
+    //inputs for logic program
     public static String caloriesBurntPerActivity(String _activity_group, int _burnedcalories_min){
         return "calories_burnt_per_activity(\""+_activity_group+"\", "+_burnedcalories_min+").";
     }

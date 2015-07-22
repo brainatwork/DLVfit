@@ -22,7 +22,9 @@ import it.unical.mat.dlvfit.utils.CaloriesCalculator;
 import it.unical.mat.dlvfit.utils.RecognitionApiConstants;
 import it.unical.mat.dlvfit.utils.Utils;
 
-
+/**
+ * Shows a graphic report for burned calories
+ */
 public class CaloriesReport extends AppCompatActivity {
     protected static final String TAG = "CaloriesReport";
     private TextView reportTxt1, reportTxt2, reportTxt3;

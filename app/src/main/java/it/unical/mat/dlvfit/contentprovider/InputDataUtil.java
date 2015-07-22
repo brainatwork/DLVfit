@@ -5,7 +5,7 @@ package it.unical.mat.dlvfit.contentprovider;
  */
 
 /**
- * Utility class representing an object that contains user input data
+ * InputDataUtil is a utility class to represent an object that contains user input data
  */
 public class InputDataUtil {
     private double _weight;

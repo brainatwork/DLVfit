@@ -25,7 +25,7 @@ import it.unical.mat.dlvfit.utils.Utils;
  */
 
 /**
- * This fragment helps user to add a new activity for workout calculation
+ * This fragment helps user to add a new activity for workouts calculation
  */
 public class AddActivity extends Fragment{
 
@@ -40,7 +40,6 @@ public class AddActivity extends Fragment{
     private SQLiteDBManager dbManager;
 
     public AddActivity() {
-        // Required empty public constructor
     }
 
     @Override
@@ -63,7 +62,7 @@ public class AddActivity extends Fragment{
         final int burnedCaloriesTableSize = dbManager.retrieveBurnedCaloriesMinGroups().size();
         Iterator ac = heartRatePerActivity.keySet().iterator();//iterate on heartRatePerActivity keys
 
-        //if burnedcalories table is empty
+        //if burnedcalories table is empty is initialized with zero values
         if(burnedCaloriesTableSize == 0){
             //create values in db
             while (ac.hasNext()) {
@@ -74,6 +73,7 @@ public class AddActivity extends Fragment{
             }
         }
 
+        //confirm and add a new activity in SQLite DB
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,13 +88,14 @@ public class AddActivity extends Fragment{
 
                 if(burnedCaloriesUtil.getActivityGroup().equals("") && !_activity.equals("") && _calories != 0 && valueControl(_activity)){
                     dbManager.createBurnedCaloriesMinGroup(new BurnedCaloriesUtil(_activity, _calories));
-
+                    //first and second value for optimizations that will be used by the logic program via embasp framework
                     int toInsert_firstLevel = Utils.NEUTRAL_VALUE;
                     int toInsert_secondLevel = 0;
 
                     //get actual first and second level from optimizations except "time" and "activities per workout"
                     ArrayList<OptimizeUtil> optimizations = dbManager.retrieveOptimizations();
 
+                    //search for the correct second level
                     for(int i = 0; i < optimizations.size(); i++){
                         if(!optimizations.get(i).getOptimizationName().equals(R.string.optimization_1_db)
                                 && !optimizations.get(i).getOptimizationName().equals(R.string.optimization_2_db)){
@@ -102,8 +103,8 @@ public class AddActivity extends Fragment{
                             break;
                         }
                     }
-
-                    dbManager.createOptimization(new OptimizeUtil(_activity,toInsert_firstLevel, toInsert_secondLevel));
+                    //create a default optimization for the activity added
+                    dbManager.createOptimization(new OptimizeUtil(_activity, toInsert_firstLevel, toInsert_secondLevel));
 
                     Log.i(TAG, "Activity added: " + _activity + " " + _calories);
                     Log.i(TAG, "Optimization initialized. Row inserted: "+ _activity +" , "+ toInsert_firstLevel +" ," + toInsert_secondLevel);
@@ -129,7 +130,7 @@ public class AddActivity extends Fragment{
     public void onDetach() {
         super.onDetach();
     }
-
+    //utility func
     private boolean valueControl(String _activity){
         if(_activity.equals("WALKING") || _activity.equals("BICYCLE") || _activity.equals("STILL") || _activity.equals("RUNNING")){
             return false;

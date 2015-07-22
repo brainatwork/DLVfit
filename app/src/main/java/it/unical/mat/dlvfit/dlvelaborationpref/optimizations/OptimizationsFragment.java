@@ -28,6 +28,10 @@ import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
 /**
  * Created by Brain At Work on 22/05/2015.
  */
+
+/**
+ * OptimizationsFragment contains a graphical interface for setting optimizations using drag and drop
+ */
 public class OptimizationsFragment extends DialogFragment {
     private static TextView[] choices; //contains text views corresponding to user choices
     private static TextView[] options; //contains text views correspondint to user options
@@ -75,14 +79,14 @@ public class OptimizationsFragment extends DialogFragment {
         option1 = (TextView) rootView.findViewById(R.id.option_1);
         option2 = (TextView) rootView.findViewById(R.id.option_2);
         option3 = (TextView) rootView.findViewById(R.id.option_3);
-
+        //save TextViews content String into an array
         options[0] = option1;
         options[1] = option2;
         options[2] = option3;
 
-        for (int i = 0; i < options.length; i++) {
+        /*for (int i = 0; i < options.length; i++) {
             Log.i(TAG, "OPTIONS " + options[i].getText().toString());
-        }
+        }*/
 
 
         //views to drop onto
@@ -90,13 +94,14 @@ public class OptimizationsFragment extends DialogFragment {
         choice2 = (TextView) rootView.findViewById(R.id.choice_2);
         choice3 = (TextView) rootView.findViewById(R.id.choice_3);
 
+        //save TextViews content String into an array
         choices[0] = choice1;
         choices[1] = choice2;
         choices[2] = choice3;
 
-        for (int i = 0; i < choices.length; i++) {
+        /*for (int i = 0; i < choices.length; i++) {
             Log.i(TAG, "CHOICES " + choices[i].getText().toString());
-        }
+        }*/
 
         choice_txts = new String[choices.length];
         for (int i = 0; i < choice_txts.length; i++) {
@@ -107,6 +112,7 @@ public class OptimizationsFragment extends DialogFragment {
         mConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //contains the algorithm for optimizations setting
                 setOptimizations();
             }
         });
@@ -234,7 +240,7 @@ public class OptimizationsFragment extends DialogFragment {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    //handle optimizations choosed by user and insert them into SQLite db with {@SQLiteDBManager}
+    //handle optimizations choosed by user and inserts them into SQLite db with {@SQLiteDBManager}
     private void setOptimizations() {
         boolean selected = false;
 

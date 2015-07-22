@@ -42,6 +42,11 @@ import it.unical.mat.dlvfit.service.DetectedActivitiesIntentService;
 /**
  * Created by Brain At Work on 13/05/2015.
  */
+/**
+ * The fragment shows the user interface that allows  to initialize the update of GoogleRecognitionApi.
+ * This allows DLVfit to estimate the calories burned through the activities recognized by GoogleRecognitionApi.
+ * The fragment allows the user to access various reports.
+ */
 public class StartWorkout extends Fragment implements GoogleApiClient.ConnectionCallbacks, OnConnectionFailedListener, ResultCallback<Status> {
 
     protected static final String TAG = "StartWorkoutFragment";
