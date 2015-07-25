@@ -35,8 +35,8 @@
     <string name="form_title">Fill out the form</string>
     <string name="form_age">Age</string>
     <string name="form_weight">Weight (kg)</string>
-    <string name="form_workout">Workout time (min)</string>
-    <string name="form_calories">Calories to burn (cal)</string>
+    <string name="form_workout">Workout time (60 min. max)</string>
+    <string name="form_calories">Calories to burn (500 cal. max)</string>
     <string name="form_male">Male</string>
     <string name="form_female">Female</string>
     <string name="btn_confirm">Confirm</string>
@@ -45,6 +45,8 @@
     <string name="toast_confirmed_txt">Input data confirmed.</string>
     <string name="toast_zero_values_txt">Zero values!</string>
     <string name="toast_blank_values_txt">Blank values!</string>
+    <string name="toast_max_colories_value_txt">Calories to burn can not be greater than 500</string>
+    <string name="toast_max_minute_value_txt">Workout time can not be greater than 60</string>
     <string name="age_txt">Age</string>
     <string name="weight_txt">Weight (kg)</string>
     <string name="calories_txt">Calories to burn (cal)</string>

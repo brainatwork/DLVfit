@@ -141,6 +141,21 @@ public class UserDataFragment extends Fragment {
                         Toast.makeText(getActivity(), R.string.toast_zero_values_txt, Toast.LENGTH_SHORT).show();
                         return;
                     }
+
+                    //check for maximum calories value
+                    if (Integer.valueOf(mEditCalories.getText().toString()) > 500) {
+
+                        Toast.makeText(getActivity(), R.string.toast_max_colories_value_txt, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    //check for maximum workout duration value
+                    if (Integer.valueOf(mEditWorkoutTime.getText().toString()) > 60) {
+
+                        Toast.makeText(getActivity(), R.string.toast_max_minute_value_txt, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                 }
 
 
