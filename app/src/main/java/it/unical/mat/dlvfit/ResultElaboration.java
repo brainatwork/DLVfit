@@ -46,14 +46,15 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
     private SQLiteDBManager dbManager;
     private ProgressDialog elaboration;
     private AlertDialog answerSetAlert;
-
+    private long time;
     // more efficient than HashMap for mapping integers to objects
     private SparseArray<ResultGroup> groups = new SparseArray<ResultGroup>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        time = System.currentTimeMillis();
+        Log.i(TAG, "START TIME: " + time);
         setContentView(R.layout.activity_elaboration_result);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -340,6 +341,7 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
                 aspHandler.setFilter(ActivityToDo.class);
 
                 //START EMBASP framework answer sets elaboration
+                Log.i(TAG,"EMBASP START TIME: " + (System.currentTimeMillis() - time));
                 aspHandler.start(getApplicationContext(), this);
             } else {
                 if (!isFinishing()) {
@@ -364,6 +366,7 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
     //callback called on result from EMBASP Framework
     @Override
     public void callback(AnswerSets answerSets) {
+        Log.i(TAG,"EMBASP END TIME: " + (System.currentTimeMillis() - time));
         List<AnswerSet> answerSetList = answerSets.getAnswerSetsList();
         Log.i(TAG, "Answer sets generated: " + answerSetList.size());
         int count = 0;
@@ -407,6 +410,7 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
 
         //calculation ended. Progress Dialog for elabortion is deleted
         elaboration.dismiss();
+        Log.i(TAG, "EMBASP SHOW RESULT TIME: " + (System.currentTimeMillis() - time));
     }
     //utility function for result format
     private String resultFormat(String str){
