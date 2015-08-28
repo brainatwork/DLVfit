@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,11 +74,39 @@ public class ElaborateWorkout extends Fragment {
 
         ArrayList<OptimizeUtil> optimizations = dbManager.retrieveOptimizations();
 
-        /*for(int i = 0; i < optimizations.size(); i++){
-            Log.i(TAG, optimizations.get(i).getOptimizationName() + "" + optimizations.get(i).getSecondLevel());
+        int maxSecondlevel = findMax(optimizations.get(0).getSecondLevel(),
+                optimizations.get(1).getSecondLevel(),
+                optimizations.get(2).getSecondLevel());
+
+        //shows current optimization (rank visualization)
+        //initialization is based on the initial position in which they are added into the database in the initialization phase
+        mOpt1.setText(R.string.optimization_1);
+        if (optimizations.get(0).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt1, (maxSecondlevel + 1) - optimizations.get(0).getSecondLevel());//first entry in db on initialization: "time"
+        } else {
+            setLevelIcon(mImageOpt1, 0);//first entry in db on initialization: "time"
         }
-        */
-        //shows current optimization
+        Log.i(TAG, "Time per workout: " + optimizations.get(0).getSecondLevel());
+
+        mOpt2.setText(R.string.optimization_3);
+        if (optimizations.get(2).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt2, (maxSecondlevel + 1) - optimizations.get(2).getSecondLevel());//third entry in db on initialization: "activities"
+        } else {
+            setLevelIcon(mImageOpt2, 0);//third entry in db on initialization: "activities"
+        }
+        Log.i(TAG, "Activity type: " + optimizations.get(2).getSecondLevel());
+
+        mOpt3.setText(R.string.optimization_2);
+        if (optimizations.get(1).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt3, (maxSecondlevel + 1) - optimizations.get(1).getSecondLevel());//second entry in db on initialization: "activity type"
+        }
+        else{
+            setLevelIcon(mImageOpt3, 0);//second entry in db on initialization: "activity type"
+        }
+        Log.i(TAG, "Activities per workout: " + optimizations.get(1).getSecondLevel());
+
+        /*
+        //shows current optimization (DB values visualization)
         //initialization is based on the initial position in which they are added into the database in the initialization phase
         mOpt1.setText(R.string.optimization_1);
         setLevelIcon(mImageOpt1, optimizations.get(0).getSecondLevel());//first entry in db on initialization: "time"
@@ -85,7 +114,7 @@ public class ElaborateWorkout extends Fragment {
         setLevelIcon(mImageOpt2, optimizations.get(1).getSecondLevel());//second entry in db on initialization: "activities"
         mOpt3.setText(R.string.optimization_3);
         setLevelIcon(mImageOpt3, optimizations.get(2).getSecondLevel());//from third entry in db on initialization: "activity type"
-
+        */
         optionsFragment = new OptimizationsFragment();
         preferencesFragment = new PreferencesFragment();
 
@@ -144,6 +173,16 @@ public class ElaborateWorkout extends Fragment {
         if(secondLevel == 3){
             iv.setImageResource(R.drawable.number3);
         }
+    }
+
+    //utility function for max calculation between int values
+    private int findMax(int... vals) {
+        int max = 0;
+
+        for (int d : vals) {
+            if (d > max) max = d;
+        }
+        return max;
     }
 }
 

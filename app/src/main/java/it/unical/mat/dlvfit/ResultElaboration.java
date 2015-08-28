@@ -53,7 +53,9 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         time = System.currentTimeMillis();
+
         Log.i(TAG, "START TIME: " + time);
         setContentView(R.layout.activity_elaboration_result);
 
@@ -70,6 +72,7 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
 
         int remainingCaloriesToBurn = remainingCaloriesToBurn();
         //Elaboration start
+        Log.i(TAG, "EMBASP START TIME: " + time);
         embaspStart(dbManager, remainingCaloriesToBurn, workoutTime, caloriesToBurnNeeding);
     }
 
@@ -368,7 +371,7 @@ public class ResultElaboration extends AppCompatActivity implements AnswerSetCal
     public void callback(AnswerSets answerSets) {
         Log.i(TAG,"EMBASP END TIME: " + (System.currentTimeMillis() - time));
         List<AnswerSet> answerSetList = answerSets.getAnswerSetsList();
-        Log.i(TAG, "Answer sets generated: " + answerSetList.size());
+        Log.i(TAG, "EMASP ANSWER SETS GENERATED: " + answerSetList.size());
         int count = 0;
         int item = 1;
         for (AnswerSet answerSet : answerSetList) {
