@@ -403,7 +403,7 @@ public class StartWorkout extends Fragment implements GoogleApiClient.Connection
 
         // Creates a specific Intent that open a specific activity. MainActivity in this case.
         Intent resultIntent = new Intent(getActivity(), MainActivity.class);
-        resultIntent.putExtra("FRAGMENT_KEY", 1);
+        resultIntent.putExtra(MainActivity.FRAGMENT_INTENT_KEY, 1);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(getActivity());
         stackBuilder.addParentStack(MainActivity.class);
