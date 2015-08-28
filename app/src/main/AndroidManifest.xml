@@ -45,6 +45,11 @@
             android:name=".TimeReport"
             android:label="@string/title_activity_time_report" >
         </activity>
+        <activity
+            android:name=".AsyncResultVisualization"
+            android:label="@string/title_activity_elaboration_result"
+            android:parentActivityName=".ResultElaboration">
+        </activity>
     </application>
 
 </manifest>
