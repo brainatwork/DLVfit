@@ -1,13 +1,10 @@
 package it.unical.mat.dlvfit.dlvelaborationpref.optimizations;
 
-import android.app.AlertDialog;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.DialogFragment;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -65,7 +62,7 @@ public class OptimizationsFragment extends DialogFragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        final View rootView = inflater.inflate(R.layout.dialogfragment_options, container, false);
+        final View rootView = inflater.inflate(R.layout.dialogfragment_optimizations, container, false);
 
         dbManager = new SQLiteDBManager(getActivity());
         optimizations = dbManager.retrieveOptimizations();
