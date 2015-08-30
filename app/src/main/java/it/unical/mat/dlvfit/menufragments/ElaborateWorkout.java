@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import it.unical.mat.dlvfit.AsyncResultVisualization;
+import it.unical.mat.dlvfit.AsyncWorkoutElaboration;
 import it.unical.mat.dlvfit.ResultElaboration;
 import it.unical.mat.dlvfit.R;
 import it.unical.mat.dlvfit.contentprovider.OptimizeUtil;
@@ -139,8 +141,14 @@ public class ElaborateWorkout extends Fragment {
             @Override
             public void onClick(View v) {
                 if(allowElaboration){
-                    Intent openElaborate = new Intent(getActivity(), ResultElaboration.class);
-                    startActivity(openElaborate);
+                    //synchronous elaboration
+                    //Intent elaborationStart = new Intent(getActivity(), ResultElaboration.class);
+                    //startActivity(elaborationStart);
+
+                    Toast.makeText(getActivity(),R.string.background_elaboration_toast_txt, Toast.LENGTH_LONG).show();
+                    //asynchronous elaboration with notification
+                    new AsyncWorkoutElaboration(getActivity()).execute();
+
                 }else{
                     Toast.makeText(getActivity(),R.string.fill_form_toast_txt, Toast.LENGTH_LONG).show();
                 }

@@ -69,6 +69,7 @@
     <string name="optimization_3">Activity type</string>
 
     <string name="fill_form_toast_txt">You should fill out the form with your data first!</string>
+    <string name="background_elaboration_toast_txt">DLVfit will notify you when workouts are available. </string>
 
     <!-- AddActivity fragment strings-->
     <string name="add_activity_title">Add new activities</string>
@@ -118,6 +119,13 @@
     <!--Report strings-->
     <string name="title_activity_calories_report">Calories Report</string>
     <string name="title_activity_time_report">Time Report</string>
+
+
+    <!-- AsincWorkoutElaboration-->
+    <string name="no_workouts_toast">"No workouts elaborated. Minutes are not enough to burn calories inserted in the User Data form!"</string>
+    <string name="no_calories_to_burn_toast">"No calories to burn! Maybe you finished your workout."</string>
+    <string name="workouts_elaborates_notification">"Workouts elaborated: "</string>
+    <string name="no_workouts_notification">"No workouts for input data inserted in the User Data form!"</string>
 
     <!-- db reference for optimizations-->
     <string name="optimization_1_db">time</string>

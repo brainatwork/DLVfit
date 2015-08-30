@@ -97,10 +97,10 @@ public class AsyncWorkoutElaboration extends AsyncTask<Void, Void, Void> impleme
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         if(thresholdAlert){
-            Toast.makeText(mContext,"No workouts elaborated. Minutes are not enough to burn calories added!" , Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext,R.string.no_workouts_toast , Toast.LENGTH_LONG).show();
         }
         if(caloriesAlert){
-            Toast.makeText(mContext,"No calories to burn! Maybe you finished your workout." , Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext,R.string.no_calories_to_burn_toast , Toast.LENGTH_LONG).show();
         }
 
     }
@@ -119,9 +119,9 @@ public class AsyncWorkoutElaboration extends AsyncTask<Void, Void, Void> impleme
         //Notification options setup
         mBuilder.setContentTitle(mContext.getString(R.string.app_name));
         if (workouts > 0) {
-            mBuilder.setContentText("Workouts: " + workouts);
+            mBuilder.setContentText(mContext.getString(R.string.workouts_elaborates_notification) + workouts);
         } else {
-            mBuilder.setContentText("No workouts for input data added!");
+            mBuilder.setContentText(mContext.getString(R.string.no_workouts_notification));
         }
         mBuilder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
         mBuilder.setAutoCancel(false);
