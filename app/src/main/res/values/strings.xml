@@ -67,6 +67,7 @@
     <string name="optimization_1">Time per workout</string>
     <string name="optimization_2">Activities per workout</string>
     <string name="optimization_3">Activity type</string>
+    <string name="optimize_legend_txt">The icon on the left represents the preference value assigned to a particoular optimization. As a podium, the first has the highest liking. Cross icon is for an unchoosed optimization.</string>
 
     <string name="fill_form_toast_txt">You should fill out the form with your data first!</string>
     <string name="background_elaboration_toast_txt">DLVfit will notify you when workouts are available. </string>
@@ -108,8 +109,8 @@
     <string name="choice_1">First choice</string>
     <string name="choice_2">Second choice</string>
     <string name="choice_3">Third choise</string>
-    <string name="to_drag_title">Choose the optimization you prefer and drag it. </string>
-    <string name="to_drop_title">Drop the optimization on your preference level .</string>
+    <string name="to_drag_title">Choose the optimization you prefer and drag it. The icon on the left represents the last value stored. </string>
+    <string name="to_drop_title">Drop the optimization on your preference level. As a podium, the first has the highest liking. Cross icon is for an unchoosed optimization. </string>
     <string name="optimizations_alert">Do you want to save current optimizations? If you press "Yes" with no optimizations added DLVfit will work without optimizations.</string>
 
     <!--PreferencesFragment-->

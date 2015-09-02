@@ -36,15 +36,17 @@ public class OptimizationsFragment extends DialogFragment {
     private boolean noChoiceSelected;
     private static ArrayList<String> optimizationsChoosed;//contains optimizations choosed by user
     private static ArrayList<String> optimizationsNotChoosed;//contains optimizations not choosed by user
+
     private static SQLiteDBManager dbManager; //reference to SQLite db manager
     private ArrayList<OptimizeUtil> optimizations;
-    //private AlertDialog alertDialog;
     private int level = 0;
+
     protected static final String TAG = "OptimizationsFragment";
 
     //text views being dragged and dropped onto
     private TextView option1, option2, option3, choice1, choice2, choice3, dropTitle;
     private ImageView mReset, mConfirm;
+    private ImageView mImageOpt1, mImageOpt2, mImageOpt3;
 
 
     public OptimizationsFragment() {
@@ -53,6 +55,7 @@ public class OptimizationsFragment extends DialogFragment {
         options = new TextView[3];
         optimizationsChoosed = new ArrayList<String>();
         optimizationsNotChoosed = new ArrayList<String>();
+
         noChoiceSelected = true;
         level = 0;
 
@@ -71,6 +74,12 @@ public class OptimizationsFragment extends DialogFragment {
         dropTitle = (TextView) rootView.findViewById(R.id.drop_title);
         mReset = (ImageView) rootView.findViewById(R.id.reset_optimizations);
         mConfirm = (ImageView) rootView.findViewById(R.id.confirm_optimizations);
+
+        //level icon
+        mImageOpt1 = (ImageView) rootView.findViewById(R.id.option_icon_1);
+        mImageOpt2 = (ImageView) rootView.findViewById(R.id.option_icon_2);
+        mImageOpt3 = (ImageView) rootView.findViewById(R.id.option_icon_3);
+
         //get both sets of text views
         //views to drag
         option1 = (TextView) rootView.findViewById(R.id.option_1);
@@ -126,6 +135,11 @@ public class OptimizationsFragment extends DialogFragment {
                 }
                 optimizationsChoosed.clear();
                 optimizationsNotChoosed.clear();
+
+                //reset icons
+                setLevelIcon(mImageOpt1, 0);
+                setLevelIcon(mImageOpt2, 0);
+                setLevelIcon(mImageOpt3, 0);
             }
         });
 
@@ -138,6 +152,37 @@ public class OptimizationsFragment extends DialogFragment {
         choice1.setOnDragListener(new ChoiceDragListener());
         choice2.setOnDragListener(new ChoiceDragListener());
         choice3.setOnDragListener(new ChoiceDragListener());
+
+
+
+        //shows current optimization icon
+        //initialization is based on the initial position in which they are added into the database in the initialization phase
+
+        int maxSecondlevel = findMax(optimizations.get(0).getSecondLevel(),
+                optimizations.get(1).getSecondLevel(),
+                optimizations.get(2).getSecondLevel());
+
+        if (optimizations.get(0).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt1, (maxSecondlevel + 1) - optimizations.get(0).getSecondLevel());//first entry in db on initialization: "time"
+        } else {
+            setLevelIcon(mImageOpt1, 0);//first entry in db on initialization: "time"
+        }
+        Log.i(TAG, "Time per workout: " + optimizations.get(0).getSecondLevel());
+
+        if (optimizations.get(2).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt2, (maxSecondlevel + 1) - optimizations.get(2).getSecondLevel());//third entry in db on initialization: "activities"
+        } else {
+            setLevelIcon(mImageOpt2, 0);//third entry in db on initialization: "activities"
+        }
+        Log.i(TAG, "Activity type: " + optimizations.get(2).getSecondLevel());
+
+        if (optimizations.get(1).getSecondLevel() != 0) {
+            setLevelIcon(mImageOpt3, (maxSecondlevel + 1) - optimizations.get(1).getSecondLevel());//second entry in db on initialization: "activity type"
+        }
+        else{
+            setLevelIcon(mImageOpt3, 0);//second entry in db on initialization: "activity type"
+        }
+        Log.i(TAG, "Activities per workout: " + optimizations.get(1).getSecondLevel());
 
         return rootView;
     }
@@ -196,9 +241,12 @@ public class OptimizationsFragment extends DialogFragment {
 
                     //view dragged item is being dropped on
                     TextView dropTarget = (TextView) v;
+                    Log.i(TAG, " DROP TARGET " + dropTarget.getText());
 
                     //view being dragged and dropped
                     TextView dropped = (TextView) view;
+                    Log.i(TAG, " DROPPED " + dropped.getText());
+                    Log.i(TAG, " DROPPED " + dropped.getText());
 
                     //update the text in the target view to reflect the data being dropped
                     dropTarget.setText(dropped.getText());
@@ -335,6 +383,32 @@ public class OptimizationsFragment extends DialogFragment {
                 }
             }
         }
+    }
+
+    //the function associates the correct image to the optimization level setted
+    private void setLevelIcon(ImageView iv, int secondLevel) {
+        if (secondLevel == 0) {
+            iv.setImageResource(R.drawable.cross);
+        }
+        if (secondLevel == 1) {
+            iv.setImageResource(R.drawable.number1);
+        }
+        if (secondLevel == 2) {
+            iv.setImageResource(R.drawable.number2);
+        }
+        if (secondLevel == 3) {
+            iv.setImageResource(R.drawable.number3);
+        }
+    }
+
+    //utility function for max calculation between int values
+    private int findMax(int... vals) {
+        int max = 0;
+
+        for (int d : vals) {
+            if (d > max) max = d;
+        }
+        return max;
     }
 
     @Override
