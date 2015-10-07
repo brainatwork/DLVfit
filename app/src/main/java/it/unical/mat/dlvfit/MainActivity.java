@@ -1,7 +1,5 @@
 package it.unical.mat.dlvfit;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,7 +14,7 @@ import android.view.View;
 
 import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
 import it.unical.mat.dlvfit.menufragments.AddActivity;
-import it.unical.mat.dlvfit.menufragments.ElaborateWorkout;
+import it.unical.mat.dlvfit.menufragments.ElaborateWorkouts;
 import it.unical.mat.dlvfit.menufragments.StartWorkout;
 import it.unical.mat.dlvfit.menufragments.UserDataFragment;
 
@@ -115,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_start_workout);
                 break;
             case 2:
-                fragment = new ElaborateWorkout();
+                fragment = new ElaborateWorkouts();
                 title = getString(R.string.title_elaborate_workout);
                 break;
             case 3:

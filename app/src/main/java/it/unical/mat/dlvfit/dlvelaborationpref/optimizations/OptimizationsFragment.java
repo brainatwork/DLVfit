@@ -135,11 +135,6 @@ public class OptimizationsFragment extends DialogFragment {
                 }
                 optimizationsChoosed.clear();
                 optimizationsNotChoosed.clear();
-
-                //reset icons
-                setLevelIcon(mImageOpt1, 0);
-                setLevelIcon(mImageOpt2, 0);
-                setLevelIcon(mImageOpt3, 0);
             }
         });
 

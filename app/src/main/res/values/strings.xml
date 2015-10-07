@@ -62,7 +62,7 @@
     <string name="btn_elaborate">Elaborate</string>
     <string name="preferences_icon2_txt">Preferences</string>
     <string name="options_icon1_txt">Optimizations</string>
-    <string name="elaborate_activity_text">Press the button to show proper wokouts for calories you need to burn</string>
+    <string name="elaborate_activity_text">Press the button to show proper workouts for calories you need to burn</string>
     <string name="optimizations">Optimization values:</string>
     <string name="optimization_1">Time per workout</string>
     <string name="optimization_2">Activities per workout</string>
@@ -102,7 +102,7 @@
     <string name="title_activity_elaboration_result">Elaboration Result</string>
 
     <!-- OptimizationsFragment -->
-    <string name="options_title">Choose the optimizations and place them in your order of preference.</string>
+    <string name="options_title">Choose the optimizations and place them in your preferred order.</string>
     <string name="option_1">Time per workout</string>
     <string name="option_2">Activity type</string>
     <string name="option_3">Activities per workout</string>
