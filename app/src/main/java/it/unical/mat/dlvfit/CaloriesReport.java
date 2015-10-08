@@ -103,10 +103,19 @@ public class CaloriesReport extends AppCompatActivity {
         //add an Entry object representing the remaining calories to burn
         entries.add(new Entry(CaloriesCalculator.caloriesToBurn(caloriesToBurn, total), activities.size()));
 
+
+        //entries ex.
         /*entries.add(new Entry(16f, 0));
+        reportTxts[0].setText(16f + "cal");
+
         entries.add(new Entry(16f, 1));
+        reportTxts[1].setText(16f + "cal");
+
         entries.add(new Entry(54f, 2));
-        entries.add(new Entry(54f, 3));*/
+        reportTxts[2].setText(54f + "cal");
+
+        entries.add(new Entry(14f, 3));*/
+        //
 
         //set chart
         PieDataSet dataset = new PieDataSet(entries, "");

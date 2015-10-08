@@ -79,10 +79,15 @@ public class TimeReport extends AppCompatActivity {
         }
 
         //entries ex.
-        //entries.add(new BarEntry(4, 0));
-        //entries.add(new BarEntry(8, 1));
-        //entries.add(new BarEntry(6, 2));
-        //entries.add(new BarEntry(12, 3));
+        /*entries.add(new BarEntry(4, 0));
+        reportTxts[0].setText(4 + "min");
+        entries.add(new BarEntry(8, 1));
+        reportTxts[1].setText(8 + "min");
+        entries.add(new BarEntry(6, 2));
+        reportTxts[2].setText(6 + "min");
+        entries.add(new BarEntry(12, 3));
+        reportTxts[3].setText(12+"min");*/
+        //
 
         BarDataSet dataset = new BarDataSet(entries, "");
         dataset.setColors(ColorTemplate.COLORFUL_COLORS);
