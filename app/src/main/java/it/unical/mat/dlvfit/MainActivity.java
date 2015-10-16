@@ -13,9 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import it.unical.mat.dlvfit.contentprovider.SQLiteDBManager;
-import it.unical.mat.dlvfit.menufragments.AddActivity;
-import it.unical.mat.dlvfit.menufragments.ElaborateWorkouts;
-import it.unical.mat.dlvfit.menufragments.StartWorkout;
+import it.unical.mat.dlvfit.menufragments.AddActivityFragment;
+import it.unical.mat.dlvfit.menufragments.ElaborateWorkoutsFragment;
+import it.unical.mat.dlvfit.menufragments.StartWorkoutFragment;
 import it.unical.mat.dlvfit.menufragments.UserDataFragment;
 
 /**
@@ -109,15 +109,15 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 title = getString(R.string.title_user_data);
                 break;
             case 1:
-                fragment = new StartWorkout();
+                fragment = new StartWorkoutFragment();
                 title = getString(R.string.title_start_workout);
                 break;
             case 2:
-                fragment = new ElaborateWorkouts();
+                fragment = new ElaborateWorkoutsFragment();
                 title = getString(R.string.title_elaborate_workout);
                 break;
             case 3:
-                fragment = new AddActivity();
+                fragment = new AddActivityFragment();
                 title = getString(R.string.title_add_activity);
                 break;
             default:

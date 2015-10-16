@@ -27,7 +27,7 @@ import it.unical.mat.dlvfit.utils.Utils;
 /**
  * This fragment helps user to add a new activity for workouts calculation
  */
-public class AddActivity extends Fragment{
+public class AddActivityFragment extends Fragment{
 
     private EditText mEditActivity, mEditCaloriesMin;
     private Button mAdd;
@@ -39,7 +39,7 @@ public class AddActivity extends Fragment{
      */
     private SQLiteDBManager dbManager;
 
-    public AddActivity() {
+    public AddActivityFragment() {
     }
 
     @Override

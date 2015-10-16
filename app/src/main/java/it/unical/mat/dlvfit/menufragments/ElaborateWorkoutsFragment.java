@@ -35,7 +35,7 @@ import it.unical.mat.dlvfit.dlvelaborationpref.preferences.PreferencesFragment;
  * This fragment is preparatory for workouts elaborations. Shows to user the current optimizations setted and allows
  * him to entry in preferences and optimizations settings.
  */
-public class ElaborateWorkouts extends Fragment {
+public class ElaborateWorkoutsFragment extends Fragment {
 
     private ImageView mOpenOptions, mOpenPreferences, mImageOpt1, mImageOpt2, mImageOpt3;
     private Button mElaborate;
@@ -47,7 +47,7 @@ public class ElaborateWorkouts extends Fragment {
 
     protected static final String TAG = "ElaborateWorkoutFragment";
 
-    public ElaborateWorkouts() {
+    public ElaborateWorkoutsFragment() {
     }
 
     @Override

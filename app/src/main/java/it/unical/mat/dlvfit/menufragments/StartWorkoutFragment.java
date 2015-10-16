@@ -47,7 +47,7 @@ import it.unical.mat.dlvfit.service.DetectedActivitiesIntentService;
  * This allows DLVfit to estimate the calories burned through the activities recognized by GoogleRecognitionApi.
  * The fragment allows the user to access various reports.
  */
-public class StartWorkout extends Fragment implements GoogleApiClient.ConnectionCallbacks, OnConnectionFailedListener, ResultCallback<Status> {
+public class StartWorkoutFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, OnConnectionFailedListener, ResultCallback<Status> {
 
     protected static final String TAG = "StartWorkoutFragment";
     /**
@@ -84,7 +84,7 @@ public class StartWorkout extends Fragment implements GoogleApiClient.Connection
     private ImageView caloriesReport;
     private boolean activateFunctions;
 
-    public StartWorkout() {
+    public StartWorkoutFragment() {
         // Required empty public constructor
     }
 
